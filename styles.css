@@ -11,6 +11,10 @@ body {
   color: #1a1a1a;
 }
 
+body p {
+  margin: 0;
+}
+
 h1,
 h2,
 h3 {
@@ -25,20 +29,32 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 1.5rem 3rem;
   position: relative;
 }
 
 .left-nav a,
-header nav a {
+.right-nav a {
   color: white;
-  margin: 0 15px;
   text-decoration: none;
   font-size: 18px;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .left-nav a {
-  margin-right: 20px;
+  margin-right: 1.5rem;
+}
+
+.left-nav a:hover,
+.right-nav a:not(.btn):hover {
+  color: #d4a017;
+  transform: translateY(-2px);
+}
+
+.right-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 /* Retro stripe under header */
@@ -117,7 +133,13 @@ header::after {
 
 .hero h1 {
   font-size: 48px;
-  margin-bottom: 20px;
+  line-height: 48px;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.hero p {
+  margin-bottom: 1.2rem;
 }
 
 .hero img {
@@ -135,25 +157,6 @@ header::after {
   border-radius: 30px;
   padding: 20px;
   position: relative;
-}
-
-/* Retro layered border */
-.feature-container::before {
-  /* content: ""; */
-  position: absolute;
-  inset: -18px;
-  border-radius: 50px;
-  background: #e66a1f;
-  z-index: -2;
-}
-
-.feature-container::after {
-  /* content: ""; */
-  position: absolute;
-  inset: -32px;
-  border-radius: 60px;
-  background: #d4a017;
-  z-index: -3;
 }
 
 .cards {
@@ -177,6 +180,7 @@ header::after {
 
 .card p {
   flex-grow: 1;
+  margin-bottom: 0.5rem
 }
 
 .card a.btn {
@@ -243,15 +247,15 @@ header::after {
 
 .stylist-text {
   background: transparent;
-  border-radius: 0 0 15px 15px;
+  border-radius: 0 0 30px 30px;
   padding: 1rem;
-  margin-top: -0.5rem;
+  /* margin-top: -0.5rem; */
   box-shadow: none;
 }
 
 .stylist p {
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.2;
   color: #1a1a1a;
   flex-grow: 1;
 }
@@ -291,12 +295,116 @@ footer {
   clear: both;
 }
 
-@media (max-width: 768px) {
+footer p {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
   .hero {
     grid-template-columns: 1fr;
+    padding: 3rem;
   }
 
   .cards {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 1rem;
+    justify-content: center;
+  }
+
+  header::after {
+    display: none;
+  }
+
+  .left-nav a {
+    display: none;
+  }
+
+  .right-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .right-nav a {
+    margin-right: 0;
+    font-size: 16px;
+  }
+
+  .logo-badge {
+    margin-top: 1.5rem;
+    width: 80%;
+    position: relative;
+    top: auto;
+  }
+
+  .hero {
+    margin-top: 1.5rem;
+    gap: 1.5rem;
+    padding-top: 0;
+  }
+
+  .hero img {
+    height: auto;
+    border-radius: 20px;
+  }
+
+  .cards {
+    gap: 1rem;
+  }
+
+  .card {
+    min-height: auto;
+  }
+
+  .card a.btn {
+    margin-top: 1rem;
+  }
+
+  .stylists {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero,
+  .features,
+  .about,
+  footer {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 1.7rem;
+    line-height: 1.7rem;
+  }
+
+  .btn {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card p {
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .about h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .stylists {
+    gap: 1.5rem;
   }
 }
