@@ -46,7 +46,7 @@ header {
 }
 
 .left-nav a:hover,
-.right-nav a:not(.btn):hover {
+.right-nav a:hover {
   color: #d4a017;
   transform: translateY(-2px);
 }
@@ -80,11 +80,6 @@ header::after {
     #000000 99%,
     #000000 100%
   );
-}
-
-.logo img {
-  height: 50px;
-  object-fit: contain;
 }
 
 .btn {
@@ -246,11 +241,8 @@ header::after {
 }
 
 .stylist-text {
-  background: transparent;
   border-radius: 0 0 30px 30px;
   padding: 1rem;
-  /* margin-top: -0.5rem; */
-  box-shadow: none;
 }
 
 .stylist p {
@@ -275,12 +267,9 @@ header::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: transparent;
-  padding: 0;
 }
 
 .logo-inner img {
-  /* max-width: 180px; */
   width: 100%;
   height: auto;
 }
@@ -291,7 +280,6 @@ footer {
   text-align: center;
   padding: 3rem;
   position: relative;
-  /* margin-top: 3rem; */
   clear: both;
 }
 
