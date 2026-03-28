@@ -265,7 +265,7 @@ header::after {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 320px;
+  width: 345px;
   z-index: 5;
   display: flex;
   justify-content: center;
