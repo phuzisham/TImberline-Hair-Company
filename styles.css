@@ -175,7 +175,7 @@ header::after {
 
 .card p {
   flex-grow: 1;
-  margin-bottom: 0.5rem
+  margin-bottom: 0.5rem;
 }
 
 .card a.btn {
@@ -209,8 +209,10 @@ header::after {
 
 .stylists {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .stylist {
@@ -221,6 +223,7 @@ header::after {
   min-height: 300px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
   transition: box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
 .stylist:hover {
@@ -229,8 +232,9 @@ header::after {
 
 .stylist img {
   width: 100%;
-  height: 260px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
+  display: block;
   border-radius: 30px 30px 0 0;
   margin-bottom: 0;
 }
@@ -242,14 +246,24 @@ header::after {
 
 .stylist-text {
   border-radius: 0 0 30px 30px;
-  padding: 1rem;
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .stylist p {
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.4;
   color: #1a1a1a;
   flex-grow: 1;
+}
+
+/* Center the 3rd card */
+.stylist:last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(100%, 535px);
 }
 
 .logo-badge {
@@ -358,6 +372,13 @@ footer p {
 
   .stylists {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .stylist:last-child {
+    grid-column: auto;
+    justify-self: stretch;
+    width: 100%;
   }
 }
 
